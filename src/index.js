@@ -1,17 +1,49 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+//import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+
+
+
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <App />,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+
+
+
+
+
+
+
+/*function App() { //Creacion de componenetes
+  return (
+    //ANTERIORMENTE ERA ASI React.createElement('h1', {id: 'title'}, "oli react") React vainilla
+    <h1 id="title">
+      Oli React
+    </h1> 
+    
+  );
+}
+
+
+//**                   DOS FORMAS DE RENDERIZAR 
+
+const e = React.createElement;
+ReactDOM.render(e(LikeButton), root) //Componenee y donde se va a renderizar root del id del div 
+
+//Se esta renderizando un componenete que esta en App.js:
+//SINTAXIS JXS 
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App /> 
+  </React.StrictMode>,
+  document.getElementById('root')
+);*/

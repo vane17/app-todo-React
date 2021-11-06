@@ -7,7 +7,7 @@ import {TodoItem} from './TodoItem';
 //import './App.css';
 
 const todos = [
-  {text: 'Cortar Cebolla', completed: false},
+  {text: 'Cortar Cebolla', completed: true},
   {text: 'Tomar curso intro react', completed: false},
   {text: 'Llorar con la llorono', completed: false},
 ]
@@ -26,7 +26,7 @@ function App(props) {
       {/*Colocar atri Key un identificador unico que no se repita solo para cuando rendericen listas*/ }
       <TodoList/>
         {todos.map(todo =>(
-          <TodoItem key={todo.text} text={todo.text}/>
+          <TodoItem key={todo.text} text={todo.text} completed={todo.completed}/>
         ))}
       <TodoList/>
 

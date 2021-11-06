@@ -1,12 +1,45 @@
 import React from 'react';
+import './TodoCounter.css'; //esto gracias a create-react-app 
 
+//Importante dos llaves
 function TodoCounter(){
 
     return (
-        <h2>Has Completado 2 de 3 TODOs</h2>
+        <h2 className="TodoCounter">Has Completado 2 de 3 TODOs</h2>
     );
 };
 
+
+
+
+
+/*trabajando estios en linea:
+
+const estilos = {
+    color: 'red', 
+    backgroundColor: 'yellow'
+};
+
+//Importante dos llaves
+function TodoCounter(){
+
+    return (
+        <h2 style = {estilos}>Has Completado 2 de 3 TODOs</h2>
+    );
+};
+
+
+------------------------------------------------------------------------------------------------
+//Importante dos llaves
+function TodoCounter(){
+
+    return (
+        <h2 style = {{
+        color: 'red', 
+        backgroundColor: 'yellow'
+        }}>Has Completado 2 de 3 TODOs</h2>
+    );
+};
 
 
 

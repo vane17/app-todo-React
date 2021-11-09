@@ -3,13 +3,13 @@ import './TodoItem.css';
 
 function TodoItem(props) {
 
-  const onComplete = () => { //cuando Hagan clic en el chulo
+ /*  const onComplete = () => { //cuando Hagan clic en el chulo
     alert('Aqui completaste el todo' + props.text);
   };
 
   const onDelete = () => { //cuando Hagan clic en la x
     alert('Borraste el todo' + props.text);
-  };
+  }; */
 
   return (
     <li className="TodoItem">
@@ -20,14 +20,15 @@ function TodoItem(props) {
 
       <span 
       className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
-      onClick={onComplete}
+      onClick={props.onComplete}
+      //onClick={onComplete}
       >√</span>
       <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
         {props.text}
       </p>
       <span 
       className="Icon Icon-delete"
-      onClick={onDelete}
+      onClick={props.onDelete}
       > X</span>
     </li>
   );

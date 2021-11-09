@@ -20,6 +20,6 @@
     transition: .3s ease;
   }
   
-  .CreateTodoButton:hover {
+.CreateTodoButton:hover {
     transform: rotate(224deg);
   }

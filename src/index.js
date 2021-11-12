@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './App/index.js';
 
 
 
 
-
+//Aqui renderiza el componente App
 
 ReactDOM.render(
   <App />,

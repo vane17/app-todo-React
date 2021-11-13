@@ -9,6 +9,8 @@ import {TodoItem} from '../TodoItem';
 
 function AppUI({
 
+    error,
+    loading,
     totalTodos,
     completedTodos,
     searchValue,
@@ -30,6 +32,10 @@ function AppUI({
 
             {/*Colocar atri Key un identificador unico que no se repita solo para cuando rendericen listas*/ }
             <TodoList/>
+                {/*si hubo un erro cargar p*/}
+                {error && <p>Desesperate, hubo un error</p>}
+                {loading && <p>Estamos cargando no desesperes...</p>}
+                {(!loading && searchedTodos.length) && <p>crea tu primer todoo</p>}
                 {searchedTodos.map(todo =>(
                 <TodoItem 
                     key={todo.text} 

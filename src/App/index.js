@@ -11,29 +11,77 @@ import {AppUI} from './AppUi';
 ] */
  
 
+function useLocalStorage(itemName, initialValue){
+  const [error, setError] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
+  const [item, setItem] = React.useState(initialValue); //Lo que se manda por defecto inicialmente
+
+  React.useEffect(()=> {
+    setTimeout(()=> {
+
+      try{
+        //get metodo de localStorage permite guardar informacion 
+        //parentesis elemento que llama SIEMPRE ES STRING
+        const localStorageItem = localStorage.getItem(itemName);
+        let parsedItem;
+
+      
+        if (!localStorageItem) {  //verifica si no hay nada en local estore (usuarios nuevos)
+          //crea un por defecto lista TODOs
+          localStorage.setItem(itemName, JSON.stringify(initialValue));  //setItem (elemtos, lo que guarda)
+          //JSON.stringify([]) localstorage solo puede guardar string
+          parsedItem = initialValue;
+
+
+        } else { //ya tiene TODOS de versiones anteriores
+          parsedItem = JSON.parse(localStorageItem) //lo cambia de string a un array
+        }
+        setLoading(false);
+        setItem(parsedItem); //actualiza estado
+      }
+      catch(error){
+        setError(error);
+      }
+    }, 1000);
+  }, []); //array vacio para que se ejecute solo una vez
+
+
+  
+
+
+    //Funcion puente entre el local storage y compete y Deletetodo
+
+  const saveItem = (newItem) => {
+
+    try{
+      const stringfiedItem = JSON.stringify(newItem); //Convierte en string a todos los todos
+      localStorage.setItem(itemName, stringfiedItem);
+      setItem(newItem); //para modificar el estado
+    } catch (error) {
+      setError(error);
+    }
+  };
+
+  return { //llaves cuando se tienen mas de un estado no colocar corchetes
+    item,
+    saveItem,
+    loading,
+    error,
+
+  };
+}
+
+
 
 //react fragment un componenete
 function App(props) {
+  const {
+    item: todos, //renombra
+    saveItem: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage('TODOS_V1', []);
 
-  //get metodo de localStorage permite guardar informacion 
-  //parentesis elemento que llama SIEMPRE ES STRING
-  const localStorageTodos = localStorage.getItem('TODOS_V1');
-  let parsedTodos;
-
-  if (!localStorageTodos) {  //verifica si no hay nada en local estore (usuarios nuevos)
-    //crea un por defecto lista TODOs
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));  //setItem (elemtos, lo que guarda)
-    //JSON.stringify([]) localstorage solo puede guardar string
-    parsedTodos = []
-
-
-  } else { //ya tiene TODOS de versiones anteriores
-    parsedTodos = JSON.parse(localStorageTodos) //lo cambia de string a un array
-  }
-
-
-
-  const [todos, setTodos] = React.useState(parsedTodos); //Lo que se manda por defecto inicialmente
   const [searchValue, setSearchValue] = React.useState('');
 
 
@@ -55,16 +103,6 @@ function App(props) {
     
   }
 
-//Funcion puente entre el local storage y compete y Deletetodo
-
-const saveTodos = (newTodos) => {
-  const stringfiedTodos = JSON.stringify(newTodos); //Convierte en string a todos los todos
-  localStorage.setItem('TODOS_V1', stringfiedTodos);
-  setTodos(newTodos); //para modificar el estado
-}
-
-
-
 
 
   const completeTodo = (text) => { 
@@ -81,9 +119,14 @@ const saveTodos = (newTodos) => {
     saveTodos (newTodos); //actualizar estados
   };
 
+
+
 //componentes envia props
   return (
     <AppUI
+
+    error={error}
+    loading={loading}
     totalTodos = {totalTodos}
     completedTodos = {completedTodos}
     searchValue = {searchValue} 

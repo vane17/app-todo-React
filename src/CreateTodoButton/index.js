@@ -5,14 +5,15 @@ function CreateTodoButton(props){
 
     //pero si la funcion lleva un parametro 
 
-    const onClickButton = (msg) => {
-        alert(msg)
+    const onClickButton = () => {
+        /* props.setOpenModal(true); */
+        props.setOpenModal(prevState => !prevState); /*devuelve la negacion del estado anterior */
     }
     return (
         <button className="CreateTodoButton"
 
         //onClick={()=> console.log('Clic')}>+</button>
-        onClick={()=> onClickButton('Hay en envolver la funcion dentro de funcion')}>+</button>
+        onClick={onClickButton}>+</button>
         
     );
 

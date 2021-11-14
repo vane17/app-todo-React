@@ -1,13 +1,24 @@
 import React from 'react';
 import './TodoCounter.css'; //esto gracias a create-react-app 
+import {TodoContext} from '../TodoContext';
+//CON CONTEXT
 
-//Importante dos llaves
+function TodoCounter(){
+    const {totalTodos, completedTodos} = React.useContext(TodoContext);
+    return (
+        <h2 className="TodoCounter">Has Completado {completedTodos} de {totalTodos} TODOs</h2>
+    );
+};
+
+
+//ANTES SIN CONTEXT
+/* //Importante dos llaves
 function TodoCounter({total, completed }){
     // otra forma const {total, completed } = props; todoCounter(props)
     return (
         <h2 className="TodoCounter">Has Completado {completed} de {total} TODOs</h2>
     );
-};
+}; */
 
 
 

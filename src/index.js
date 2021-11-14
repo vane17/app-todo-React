@@ -22,6 +22,7 @@ ReactDOM.render(
 
 
 
+
 /*function App() { //Creacion de componenetes
   return (
     //ANTERIORMENTE ERA ASI React.createElement('h1', {id: 'title'}, "oli react") React vainilla

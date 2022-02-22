@@ -13,7 +13,7 @@ import {AppUI} from './AppUi';
   {text: 'Llorar con la llorono', completed: false},
 ] */
  
-function App(props) {
+function App() {
 //componentes envia props
 //con esto todo lo que este en app Ui ya tiene propiedades sin necesidad de enmviarlo
   return (

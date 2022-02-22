@@ -4,10 +4,6 @@ import './index.css';
 import App from './App/index.js';
 
 
-
-
-//Aqui renderiza el componente App
-
 ReactDOM.render(
   <App />,
   document.getElementById('root')
@@ -22,10 +18,13 @@ ReactDOM.render(
 
 
 
+//Creacion de componenetes
 
-/*function App() { //Creacion de componenetes
+/*function App() {
   return (
     //ANTERIORMENTE ERA ASI React.createElement('h1', {id: 'title'}, "oli react") React vainilla
+
+    //ahora es asi
     <h1 id="title">
       Oli React
     </h1> 
@@ -34,10 +33,12 @@ ReactDOM.render(
 }
 
 
+
+
 //**                   DOS FORMAS DE RENDERIZAR 
 
 const e = React.createElement;
-ReactDOM.render(e(LikeButton), root) //Componenee y donde se va a renderizar root del id del div 
+ReactDOM.render(e(LikeButton), root) //LikeButton Componente  y donde se va a renderizar root del id del div 
 
 //Se esta renderizando un componenete que esta en App.js:
 //SINTAXIS JXS 

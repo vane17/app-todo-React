@@ -19,7 +19,7 @@ function TodoSearch(){
         <input  className="TodoSearch" 
         placeholder="Cebolla"
         value = {searchValue}  //para conectar estado con el input
-        onChange = {onSearchValueChange}/>,
+        onChange = {onSearchValueChange}/>, //Recibe cuando escriben en el imput
         //<p>{searchValue}</p>
     ];
 };
@@ -27,12 +27,12 @@ function TodoSearch(){
 export  {TodoSearch}; 
 
 
-//Sin context
-/* 
-function TodoSearch({searchValue, setSearchValue}){
 
-    //sin context
-    
+
+
+/*           Sin usar context:
+
+function TodoSearch({searchValue, setSearchValue}){
 
     //estado inicial segundo funcion que va hacer que cambie estado
    // const [searchValue, setSearchValue] = React.useState(''); //crea estados a componentes cuando son creados como funciones no clases OJO

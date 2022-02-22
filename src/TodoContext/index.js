@@ -28,19 +28,22 @@ function TodoProvider(props) {
     const [openModal, setOpenModal] = React.useState(false);
   
   
-    const completedTodos = todos.filter( todo => todo.completed == true).length; //cuantos todos se han marcado como completados
-    const totalTodos = todos.length; //en totalTodos
+    const completedTodos = todos.filter( todo => todo.completed == true).length; //nuevo array con los todos completados
+    const totalTodos = todos.length; 
   
+
+    //filtar todos en el input 
     let searchedTodos = [];
-  
+  //que no sea mayor a 1 
     if (!searchValue.length >= 1){
-      searchedTodos = todos;
-    } else { 
+      searchedTodos = todos; //muestra todos los todos
+    } else { //si ya escribieron algo en el imput aunque sea una letra
   
       searchedTodos = todos.filter( todo => {
         const todoText = todo.text.toLowerCase(); // se convierte a minuscula para analizarlo
         const searchText = searchValue.toLowerCase();
   
+        //metodo includes de los strings
         return todoText.includes(searchText); //filtra a cuales de todos incluye el text que escribimos en nuestro input de busqueda
       })
       
@@ -50,7 +53,7 @@ function TodoProvider(props) {
   
     const completeTodo = (text) => { 
       const todoIndex = todos.findIndex(todo => todo.text === text);
-      const newTodos = [...todos]; //saca un mnuevo array para hacer las modificaciones al nuevo
+      const newTodos = [...todos]; //saca un nuevo array para hacer las modificaciones al nuevo
       newTodos[todoIndex].completed = true;
       saveTodos (newTodos); //actualizar estados
     };

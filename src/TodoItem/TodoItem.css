@@ -1,10 +1,17 @@
 .TodoItem {
   background-color: #FAFAFA;
+  border-radius: 10px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 24px;
+  width: 50%;
+  min-width: 300px;
+  min-height: 90px;
+ 
+
+  margin: 15px auto; 
   box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
 }
 
@@ -12,7 +19,7 @@
   margin: 24px 0 24px 24px;
   width: calc(100% - 120px);
   font-size: 18px;
-  line-height: 24px;
+  
   font-weight: 400;
 }
 .TodoItem-p--complete {
@@ -26,7 +33,7 @@
   align-items: center;
   height: 48px;
   width: 48px;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
   /* background-color: #CCC; */
 }

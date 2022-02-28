@@ -1,6 +1,24 @@
 .TodoCounter{
+    display: flex;
+    justify-content:center;
     font-size:24px;
     text-align:center;
     margin: 0;
-    padding: 48px;
+    padding:20px 0 48px 0;
+    color: #1F1C2C;
 }
+
+.TodoCounter__title {
+    font-size:50px;
+    font-weight:900;
+    text-align:center;
+    margin:48px 0 0 0;
+   
+    color:#1F1C2C ; 
+}
+
+.TodoCounter__number{
+    color: #928DAB ;
+    padding:0 10px;
+}
+/* 1F1C2C 0%, #928DAB  51%, #1F1C2C */

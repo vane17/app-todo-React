@@ -6,22 +6,22 @@ import {TodoContext} from '../TodoContext';
 //Con context
 function TodoSearch(){
 
-    const {searchValue, setSearchValue} = React.useContext(TodoContext)
+    const {searchValue, setSearchValue} = React.useContext(TodoContext)  //Estado
 
     
 
     const onSearchValueChange = (event) => { //Escucha los cambios de input
-        console.log(event.target.value); //se vio en la consola value dentro de target
+       // console.log(event.target.value); 
         setSearchValue(event.target.value);
     } 
 
-    return [
+    return ( /* o con [] si va hacer mas de una etiqueta o un div o <> */
         <input  className="TodoSearch" 
-        placeholder="Cebolla"
+        placeholder="Search Task"
         value = {searchValue}  //para conectar estado con el input
-        onChange = {onSearchValueChange}/>, //Recibe cuando escriben en el imput
+        onChange = {onSearchValueChange}/> //Recibe cuando escriben en el imput
         //<p>{searchValue}</p>
-    ];
+    );
 };
 
 export  {TodoSearch}; 

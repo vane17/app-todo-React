@@ -6,10 +6,15 @@ import {TodoContext} from '../TodoContext';
 function TodoCounter(){
     const {totalTodos, completedTodos} = React.useContext(TodoContext);
     return (
-        <h2 className="TodoCounter">Has Completado {completedTodos} de {totalTodos} TODOs</h2>
+        <> 
+            <h1 className="TodoCounter__title">YOUR TASKS</h1>
+            <h2 className="TodoCounter">Completed <div className="TodoCounter__number">{completedTodos}</div> to <div className="TodoCounter__number">{totalTodos}</div> tasks</h2>
+        </>
     );
 };
 
+
+export  {TodoCounter};
 
 //ANTES SIN CONTEXT
 /* //Importante dos llaves
@@ -59,5 +64,5 @@ function TodoCounter(){
 /*export default TodoCounter;
 import patito from './TodoCounter'; // se le puede poner cualquier nombre problema*/
 
-export  {TodoCounter}; // se obliga a que se usen exactamente el mismo nombre
+ // se obliga a que se usen exactamente el mismo nombre
 

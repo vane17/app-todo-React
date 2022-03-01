@@ -7,11 +7,12 @@ import {CreateTodoButton} from '../CreateTodoButton';
 import {TodoItem} from '../TodoItem';
 import {Modal} from '../Modal';
 import {TodoForm} from '../TodoForm';
+import {TodosError} from '../TodosError';
+import {TodosLoading} from '../TodoLoading';
+import {EmptyTodos} from '../EmptyTodos';
 
 
 
-// Con react Context
-//TodoContext.Consumer
 function AppUI() {
 
     const {
@@ -34,9 +35,9 @@ function AppUI() {
             
             
             <TodoList>
-                    {error && <p>Desesperate, hubo un error</p>}
-                    {loading && <p>Estamos cargando no desesperes...</p>}
-                    {(!loading && searchedTodos.length) && <p>crea tu primer todoo</p>}
+                    {error && <TodosError error={error}/>}
+                    {loading && <TodosLoading/>}
+                    {(!loading && !searchedTodos.length) && <EmptyTodos/>}
 
                     {searchedTodos.map(todo =>(
                     <TodoItem 
@@ -64,7 +65,7 @@ function AppUI() {
     );
 }
 
-
+export { AppUI }
 
 //           --Antes de React Context
 /* function AppUI({
@@ -112,4 +113,3 @@ function AppUI() {
     );
 } */ 
 
-export { AppUI }

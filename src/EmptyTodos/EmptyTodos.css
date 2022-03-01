@@ -1,0 +1,24 @@
+.icon{
+    width: 15%;
+    min-width: 150px;
+    height: 20%;
+}
+
+.container-Empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.empty_title{
+    color: #928DAB;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.empty_message{
+    color: #928DAB;
+    font-weight: 700;
+}

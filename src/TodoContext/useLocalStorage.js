@@ -29,11 +29,12 @@ function useLocalStorage(itemName, initialValue){
           }
           setLoading(false);
           setItem(parsedItem); //actualiza estado
+          
         }
         catch(error){
           setError(error);
         }
-      }, 1000);
+      }, 2000);
     }, []); //array vacio para que se ejecute solo una vez
   
   
